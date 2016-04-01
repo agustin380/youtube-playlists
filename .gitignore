@@ -1,0 +1,9 @@
+public
+
+# JS
+*.min.js
+*.js.map
+
+# Sass
+.sass-cache/
+*.css.map

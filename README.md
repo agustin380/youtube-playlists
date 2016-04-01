@@ -20,6 +20,6 @@
 
 - Utilities: Lodash
 
-- Styling: SASS (PostCSS?)
+- Styling: Sass
 
 - Deployment: Docker
