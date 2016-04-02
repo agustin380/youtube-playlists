@@ -1,0 +1,12 @@
+{
+  "name": "youtube-playlists",
+  "version": "0.1.0",
+  "description": "#### Create your own collaborative real-time Youtube playlists.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0"
+}
