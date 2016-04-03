@@ -4,7 +4,9 @@
   "description": "#### Create your own collaborative real-time Youtube playlists.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_PATH=. node src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --output-style compressed -o public/css src/client/assets/scss"
   },
   "keywords": [],
   "author": {
@@ -14,6 +16,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
+    "express": "^4.13.4",
+    "handlebars": "^4.0.5",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   },
@@ -25,6 +29,7 @@
     "eslint": "^2.6.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
+    "node-sass": "^3.4.2",
     "webpack": "^1.12.14"
   }
 }
