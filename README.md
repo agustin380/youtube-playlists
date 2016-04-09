@@ -23,3 +23,8 @@
 - Styling: Sass
 
 - Deployment: Docker
+
+
+## How to use
+
+npm start to run the server, listening on port 8080
