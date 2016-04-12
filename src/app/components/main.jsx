@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import YouTube from 'react-youtube';
+import VideoForm from './form.jsx';
 
-
-export class Layout extends React.Component {
+export default class Layout extends React.Component {
   render() {
     return (
-      <YouTube videoId={this.props.videoId} />
+      <div>
+        <YouTube videoId={this.props.videoId} />
+        <VideoForm />
+      </div>
     );
   }
 }

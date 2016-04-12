@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 
-export class VideoForm extends React.Component {
+export default class VideoForm extends React.Component {
   render() {
     return (
       <form type="POST" action=".">
@@ -12,5 +11,3 @@ export class VideoForm extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<VideoForm />, document.getElementById('videoForm'));
