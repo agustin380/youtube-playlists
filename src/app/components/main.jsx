@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import YouTubePlayer from 'youtube-player';
 
-const player = YouTubePlayer('player');
+import YouTube from 'react-youtube';
 
-export class VideoPlayer extends React.Component {
+
+export class Layout extends React.Component {
   render() {
-    player.loadVideoById(this.props.videoID);
-    return null;
+    return (
+      <YouTube videoId={this.props.videoId} />
+    );
   }
 }
 
-VideoPlayer.propTypes = {
-  videoID: React.PropTypes.string.isRequired,
-};
-
-ReactDOM.render(<VideoPlayer videoID="iNUq-JSXvS4" />, document.getElementById('player'));
+Layout.propTypes = { videoId: React.PropTypes.string };
+ReactDOM.render(<Layout videoId="iNUq-JSXvS4" />, document.getElementById('layout'));

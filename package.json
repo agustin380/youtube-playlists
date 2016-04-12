@@ -21,7 +21,7 @@
     "handlebars": "^4.0.5",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "youtube-player": "^3.0.4"
+    "react-youtube": "^6.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
