@@ -5,7 +5,7 @@ import VideoForm from './form.jsx';
 import VideoPlayer from './player.jsx';
 
 
-export default class Layout extends React.Component {
+export default class AppRoot extends React.Component {
   render() {
     return (
       <div>
@@ -16,5 +16,5 @@ export default class Layout extends React.Component {
   }
 }
 
-Layout.propTypes = { videoId: React.PropTypes.string };
-ReactDOM.render(<Layout videoId="iNUq-JSXvS4" />, document.getElementById('layout'));
+AppRoot.propTypes = { videoId: React.PropTypes.string };
+ReactDOM.render(<AppRoot videoId="iNUq-JSXvS4" />, document.getElementById('app'));
