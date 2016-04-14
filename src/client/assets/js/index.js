@@ -1,1 +1,1 @@
-import Layout from '../../../app/components/main.jsx';
+import AppRoot from '../../apps/root/components.jsx';
