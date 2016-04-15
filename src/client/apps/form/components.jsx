@@ -1,5 +1,5 @@
 import React from 'react';
-import setVideo from '../player/actions.js';
+import { setVideo } from '../player/actions.js';
 import store from '../root/store.js';
 
 

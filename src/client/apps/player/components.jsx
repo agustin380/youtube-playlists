@@ -8,12 +8,15 @@ export default class VideoPlayer extends React.Component {
     super(props);
     // Set initial video as a demo
     this.state = store.getState().player;
+
+    // Bind callback methods to make `this` the correct context.
+    this.handleSetVideo = this.handleSetVideo.bind(this);
   }
   componentDidMount() {
     store.subscribe(this.handleSetVideo);
   }
   handleSetVideo() {
-    const state = store.getState();
+    const state = store.getState().player;
     this.setState({ videoId: state.videoId });
   }
   render() {
