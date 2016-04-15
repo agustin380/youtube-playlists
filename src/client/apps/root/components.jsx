@@ -9,7 +9,7 @@ export default class AppRoot extends React.Component {
   render() {
     return (
       <div>
-        <VideoPlayer videoId={this.props.videoId} />
+        <VideoPlayer />
         <VideoForm />
       </div>
     );
@@ -17,4 +17,4 @@ export default class AppRoot extends React.Component {
 }
 
 AppRoot.propTypes = { videoId: React.PropTypes.string };
-ReactDOM.render(<AppRoot videoId="iNUq-JSXvS4" />, document.getElementById('app'));
+ReactDOM.render(<AppRoot />, document.getElementById('app'));
