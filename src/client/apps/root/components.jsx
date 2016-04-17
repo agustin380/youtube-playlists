@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import VideoForm from '../form/components.jsx';
 import VideoPlayer from '../player/components.jsx';
+import PlayList from '../playlist/components.jsx';
 
 
 export default class AppRoot extends React.Component {
@@ -11,6 +12,7 @@ export default class AppRoot extends React.Component {
       <div>
         <VideoPlayer />
         <VideoForm />
+        <PlayList />
       </div>
     );
   }
