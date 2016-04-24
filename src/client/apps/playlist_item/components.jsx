@@ -1,14 +1,25 @@
 import React from 'react';
 
-import store from '../root/store.js';
-
-
 export default class PlayListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { title: '', videoId: '' };
+  }
+  componentDidMount() {
+    const titlePromise = this.props.title;
+    titlePromise.then(title => {
+      this.setState({ title, videoId: this.props.title });
+    });
+  }
+
   render() {
     return (
-      <li>This is a PlayList item: {this.props.title}</li>
+      <li>{this.state.title}</li>
     );
   }
 }
 
-PlayListItem.propTypes = { title: React.PropTypes.string };
+PlayListItem.propTypes = {
+  title: React.PropTypes.string,
+  videoId: React.PropTypes.string,
+};

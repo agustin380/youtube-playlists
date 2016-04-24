@@ -8,6 +8,12 @@
 
 <body>
     <div id="app"></div>
+    <script>
+        function initYoutubeApi() {
+            gapi.client.setApiKey('{{ CREDENTIALS.YOUTUBE.API_KEY }}');
+        }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=initYoutubeApi"></script>
     <script src="js/bundle.js"></script>
 </body>
 

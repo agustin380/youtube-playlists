@@ -1,6 +1,4 @@
-export const setVideo = (url) => {
-  return {
-    type: 'SET_VIDEO',
-    url
-  };
-};
+export const setVideo = url => ({
+  type: 'SET_VIDEO',
+  url,
+});
