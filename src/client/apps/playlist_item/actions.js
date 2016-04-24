@@ -1,5 +1,8 @@
+let itemId = 0;
+
 export const addPlayListItem = url => ({
   type: 'ADD_ITEM',
+  id: itemId++,
   url,
 });
 

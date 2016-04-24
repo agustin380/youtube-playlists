@@ -20,7 +20,7 @@ export default class PlayList extends React.Component {
   }
   render() {
     const items = this.state.items.map(item =>
-      <PlayListItem {...item} />
+      <PlayListItem key={item.id} {...item} />
     );
     return (
       <div>

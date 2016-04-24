@@ -7,17 +7,30 @@ export default class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     // Set initial video as a demo
-    this.state = store.getState().player;
+    const videoId = store.getState().player.videoId;
+    this.state = {
+      player: null,
+      videoId,
+    };
 
     // Bind callback methods to make `this` the correct context.
     this.handleSetVideo = this.handleSetVideo.bind(this);
+    this.loadPlayer = this.loadPlayer.bind(this);
   }
   componentDidMount() {
     store.subscribe(this.handleSetVideo);
   }
   handleSetVideo() {
     const state = store.getState().player;
-    this.setState({ videoId: state.videoId });
+    if (state.videoId !== this.state.videoId) {
+      this.setState({ videoId: state.videoId });
+      this.state.player.playVideo();
+    }
+  }
+  loadPlayer(event) {
+    this.setState({
+      player: event.target,
+    });
   }
   render() {
     const opts = {
@@ -26,7 +39,11 @@ export default class VideoPlayer extends React.Component {
       },
     };
     return (
-      <YouTube videoId={this.state.videoId} opts={opts} />
+      <YouTube
+        videoId={this.state.videoId}
+        opts={opts}
+        onReady={this.loadPlayer}
+      />
     );
   }
 }
