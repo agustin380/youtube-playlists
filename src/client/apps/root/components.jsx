@@ -9,10 +9,16 @@ import PlayList from '../playlist/components.jsx';
 export default class AppRoot extends React.Component {
   render() {
     return (
-      <div>
-        <VideoPlayer />
-        <VideoForm />
-        <PlayList />
+      <div classname='container-fluid'>
+        <div className='row'>
+          <div className='col-xs-8'>
+            <VideoPlayer/>
+          </div>
+          <div className='col-xs-4'>
+            <PlayList />
+            <VideoForm />
+          </div>
+        </div>
       </div>
     );
   }
