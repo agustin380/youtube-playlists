@@ -1,4 +1,8 @@
-export const addPlayListItem = url => ({
+let itemId = 0;
+
+export const addPlayListItem = (title, videoId) => ({
   type: 'ADD_ITEM',
-  url,
+  id: ++itemId,
+  title,
+  videoId,
 });

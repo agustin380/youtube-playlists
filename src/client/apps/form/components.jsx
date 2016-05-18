@@ -1,5 +1,5 @@
 import React from 'react';
-import { addPlayListItem } from '../playlist/actions.js';
+import { getVideoInfo } from './actions.js';
 import store from '../root/store.js';
 
 
@@ -7,7 +7,7 @@ export default class VideoForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const videoUrl = document.getElementsByName('video_url')[0].value;
-    store.dispatch(addPlayListItem(videoUrl));
+    store.dispatch(getVideoInfo(videoUrl));
   }
   render() {
     return (
