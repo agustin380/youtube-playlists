@@ -16,6 +16,7 @@ export default class VideoPlayer extends React.Component {
     // Bind callback methods to make `this` the correct context.
     this.handleSetVideo = this.handleSetVideo.bind(this);
     this.loadPlayer = this.loadPlayer.bind(this);
+    this.playVideo = this.playVideo.bind(this);
   }
   componentDidMount() {
     store.subscribe(this.handleSetVideo);
@@ -24,13 +25,15 @@ export default class VideoPlayer extends React.Component {
     const state = store.getState().player;
     if (state.videoId !== this.state.videoId) {
       this.setState({ videoId: state.videoId });
-      this.state.player.playVideo();
     }
   }
   loadPlayer(event) {
     this.setState({
       player: event.target,
     });
+  }
+  playVideo() {
+    this.state.player.playVideo();
   }
   render() {
     const opts = {
@@ -43,6 +46,7 @@ export default class VideoPlayer extends React.Component {
         videoId={this.state.videoId}
         opts={opts}
         onReady={this.loadPlayer}
+        onStateChange={this.playVideo}
       />
     );
   }
