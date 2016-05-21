@@ -10,6 +10,7 @@ export default class VideoPlayer extends React.Component {
     const videoId = store.getState().player.videoId;
     this.state = {
       player: null,
+      playlistItemIndex: 0,
       videoId,
     };
 
@@ -21,10 +22,19 @@ export default class VideoPlayer extends React.Component {
   componentDidMount() {
     store.subscribe(this.handleSetVideo);
   }
-  handleSetVideo() {
-    const state = store.getState().player;
-    if (state.videoId !== this.state.videoId) {
-      this.setState({ videoId: state.videoId });
+  onStateChange(event) {
+    let state;
+    let playlistItem;
+
+    if (event.data === window.YT.PlayerState.CUED) {
+      this.state.player.playVideo();
+    } else if (event.data === window.YT.PlayerState.ENDED) {
+      // The video has ended, play the next one in the playlist.
+      state = store.getState().playlist;
+      playlistItem = state[++this.state.playlistItemIndex];
+      if (playlistItem) {
+        this.setState({ videoId: playlistItem.videoId });
+      }
     }
   }
   loadPlayer(event) {
@@ -32,9 +42,10 @@ export default class VideoPlayer extends React.Component {
       player: event.target,
     });
   }
-  onStateChange(event) {
-    if (event.data == window.YT.PlayerState.CUED) {
-      this.state.player.playVideo();
+  handleSetVideo() {
+    const state = store.getState().player;
+    if (state.videoId !== this.state.videoId) {
+      this.setState({ videoId: state.videoId });
     }
   }
   render() {
