@@ -13,7 +13,10 @@ export default class PlayListItem extends React.Component {
   }
   render() {
     return (
-      <li onClick={this.playVideo}>{this.props.title}</li>
+      <a onClick={this.playVideo} href="#" className="list-group-item">
+        <h6 className="list-group-item-heading">{this.props.title}</h6>
+        <p className="list-group-item-text">{this.props.duration}</p>
+      </a>
     );
   }
 }
@@ -21,4 +24,5 @@ export default class PlayListItem extends React.Component {
 PlayListItem.propTypes = {
   title: React.PropTypes.string,
   videoId: React.PropTypes.string,
+  duration: React.PropTypes.string,
 };

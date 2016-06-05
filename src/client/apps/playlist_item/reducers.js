@@ -5,6 +5,7 @@ const playlistItem = (state = {}, action) => {
         id: action.id,
         title: action.title,
         videoId: action.videoId,
+        duration: action.duration,
       };
     default:
       return state;

@@ -23,9 +23,8 @@ export default class PlayList extends React.Component {
       <PlayListItem key={item.id} {...item} />
     );
     return (
-      <div>
-        <h3>Playlist</h3>
-        <ul>{items}</ul>
+      <div className="list-group">
+        {items}
       </div>
     );
   }
