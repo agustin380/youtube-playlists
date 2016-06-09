@@ -12,10 +12,12 @@ export default class PlayListItem extends React.Component {
     store.dispatch({ type: 'SET_VIDEO', videoId: this.props.videoId });
   }
   render() {
+    const minutes = this.props.duration.get('minutes');
+    const seconds = this.props.duration.get('seconds');
     return (
       <a onClick={this.playVideo} href="#" className="list-group-item">
         <h6 className="list-group-item-heading">{this.props.title}</h6>
-        <p className="list-group-item-text">{this.props.duration}</p>
+        <p className="list-group-item-text">{`${minutes}:${seconds}`}</p>
       </a>
     );
   }
@@ -24,5 +26,4 @@ export default class PlayListItem extends React.Component {
 PlayListItem.propTypes = {
   title: React.PropTypes.string,
   videoId: React.PropTypes.string,
-  duration: React.PropTypes.string,
 };

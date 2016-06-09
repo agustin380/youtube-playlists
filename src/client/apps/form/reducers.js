@@ -9,8 +9,6 @@ const playlistForm = (state = {}, action) => {
   let videoId;
   let title;
   let duration;
-  let minutes;
-  let seconds;
   switch (action.type) {
     case 'GET_VIDEO_INFO':
       videoId = urlParser.parse(action.url, true).query.v;
@@ -27,9 +25,7 @@ const playlistForm = (state = {}, action) => {
         ]).then(responses => {
           title = responses[0].result.items[0].snippet.title;
           duration = moment.duration(responses[1].result.items[0].contentDetails.duration);
-          minutes = duration.get('minutes');
-          seconds = duration.get('seconds');
-          store.dispatch(addPlayListItem(title, videoId, `${minutes}:${seconds}`));
+          store.dispatch(addPlayListItem(title, videoId, duration));
         })
       );
       return state;
