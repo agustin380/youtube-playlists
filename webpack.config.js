@@ -1,19 +1,21 @@
 module.exports = {
-  entry: './src/client/assets/js/index.js',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './src/client/assets/js/index.js',
+  ],
   output: {
+    path: `${__dirname}/public/js`,
+    publicPath: '/public/js/',
     filename: 'bundle.js',
-    path: './public/js',
   },
   devtool: 'source-map',
   module: {
     loaders: [
       {
-        test: [/\.js$/, /\.jsx$/],
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react'],
-        },
+        loader: 'react-hot!babel',
       },
       {
         test: /\.json$/,
@@ -21,8 +23,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"],
-      }
+        loaders: ['style', 'css', 'sass'],
+      },
     ],
+    resolve: {
+      extensions: ['', '.js', '.jsx'],
+    },
+  },
+  devServer: {
+    contentBase: './public',
+    hot: true,
   },
 };
