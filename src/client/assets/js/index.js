@@ -1,4 +1,3 @@
 require('bootstrap/scss/bootstrap.scss');
 
-import AppRoot from '../../apps/root/components.jsx';
-
+import AppRoot from '../../app/root/components.jsx';
