@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 
-import store from '../root/store.js';
+import store from '../store.js';
 
 export default class VideoPlayer extends React.Component {
   constructor(props) {

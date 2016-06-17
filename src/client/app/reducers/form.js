@@ -1,8 +1,8 @@
 import urlParser from 'url';
 import moment from 'moment';
 
-import store from '../root/store.js';
-import { addPlayListItem } from '../playlist/actions.js';
+import store from '../store.js';
+import { addPlayListItem } from '../actions/playlist.js';
 
 
 const playlistForm = (state = {}, action) => {

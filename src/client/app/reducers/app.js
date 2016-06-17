@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import player from '../player/reducers.js';
-import playlist from '../playlist/reducers.js';
-import playlistForm from '../form/reducers.js';
+import player from './player.js';
+import playlist from './playlist.js';
+import playlistForm from './form.js';
 
 
 const rootApp = combineReducers({

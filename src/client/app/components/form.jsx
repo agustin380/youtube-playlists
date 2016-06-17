@@ -1,6 +1,6 @@
 import React from 'react';
-import { getVideoInfo } from './actions.js';
-import store from '../root/store.js';
+import { getVideoInfo } from '../actions/form.js';
+import store from '../store.js';
 
 
 export default class VideoForm extends React.Component {

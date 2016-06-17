@@ -1,4 +1,4 @@
-import playlistItem from '../playlist_item/reducers.js';
+import playlistItem from '../reducers/playlist_item.js';
 
 const playlist = (state = [], action) => {
   switch (action.type) {

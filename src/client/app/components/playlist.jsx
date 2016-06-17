@@ -1,7 +1,7 @@
 import React from 'react';
 
-import store from '../root/store.js';
-import PlayListItem from '../playlist_item/components.jsx';
+import store from '../store.js';
+import PlayListItem from '../components/playlist_item.jsx';
 
 
 export default class PlayList extends React.Component {

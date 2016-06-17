@@ -1,6 +1,6 @@
 import React from 'react';
 
-import store from '../root/store.js';
+import store from '../store.js';
 
 export default class PlayListItem extends React.Component {
   constructor(props) {

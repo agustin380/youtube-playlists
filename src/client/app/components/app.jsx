@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import VideoForm from '../form/components.jsx';
-import VideoPlayer from '../player/components.jsx';
-import PlayList from '../playlist/components.jsx';
+import VideoForm from '../components/form.jsx';
+import VideoPlayer from '../components/player.jsx';
+import PlayList from '../components/playlist.jsx';
 
 
 export default class AppRoot extends React.Component {
