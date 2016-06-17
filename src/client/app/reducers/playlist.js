@@ -1,11 +1,14 @@
-import playlistItem from '../reducers/playlist_item.js';
-
 const playlist = (state = [], action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return [
         ...state,
-        playlistItem(undefined, action),
+        {
+          id: action.id,
+          title: action.title,
+          videoId: action.videoId,
+          duration: action.duration,
+        },
       ];
     default:
       return state;
