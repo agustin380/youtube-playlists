@@ -1,33 +1,31 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+//import momentPropTypes from 'react-moment-proptypes';
 
-import store from '../store.js';
 import PlayListItem from '../components/playlistItem.jsx';
 
 
-export default class PlayList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { items: [] };
+const PlayList = ({ items, onItemClick }) => (
+  <div className="list-group">
+    {items.map(item =>
+      <PlayListItem
+        key={item.id}
+        {...item}
+        onClick={() => onItemClick(item.id, item.videoId)}
+      />
+    )}
+  </div>
+);
 
-    this.handleAddPlaylistItem = this.handleAddPlaylistItem.bind(this);
-  }
-  componentDidMount() {
-    store.subscribe(this.handleAddPlaylistItem);
-  }
-  handleAddPlaylistItem() {
-    const state = store.getState().playlist;
-    this.setState({ items: state });
-  }
-  render() {
-    const items = this.state.items.map(item =>
-      <PlayListItem key={item.id} {...item} />
-    );
-    return (
-      <div className="list-group">
-        {items}
-      </div>
-    );
-  }
-}
 
-PlayList.propTypes = { items: React.PropTypes.arrayOf(PlayListItem) };
+PlayList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    videoId: PropTypes.string.isRequired,
+    //duration: momentPropTypes.momentObj,
+    isPlaying: PropTypes.bool.isRequired,
+  }).isRequired).isRequired,
+  onItemClick: PropTypes.func.isRequired,
+};
+
+export default PlayList;

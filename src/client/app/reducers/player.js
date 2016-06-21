@@ -1,9 +1,21 @@
-const player = (state = { videoId: 'iNUq-JSXvS4' }, action) => {
+const defaultState = {
+  videoId: 'iNUq-JSXvS4',
+  player: undefined,
+};
+
+const player = (state = defaultState, action) => {
   switch (action.type) {
     case 'SET_VIDEO':
-      return {
-        videoId: action.videoId,
-      };
+      return Object.assign(
+        {}, state, { videoId: action.videoId }
+      );
+    case 'SET_PLAYER':
+      return Object.assign(
+        {}, state, { player: action.player }
+      );
+    case 'PLAY_CURRENT_VIDEO':
+      state.player.playVideo();
+      return state;
     default:
       return state;
   }

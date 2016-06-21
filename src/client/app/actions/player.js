@@ -1,4 +1,17 @@
-export const setVideo = url => ({
+export const setVideo = videoId => ({
   type: 'SET_VIDEO',
-  url,
+  videoId,
+});
+
+export const setPlayer = player => ({
+  type: 'SET_PLAYER',
+  player,
+});
+
+export const playCurrentVideo = () => ({
+  type: 'PLAY_CURRENT_VIDEO',
+});
+
+export const playNextVideo = () => ({
+  type: 'PLAY_NEXT_VIDEO',
 });

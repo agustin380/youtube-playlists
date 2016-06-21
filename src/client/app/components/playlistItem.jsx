@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+//import momentPropTypes from 'react-moment-proptypes';
 
-import store from '../store.js';
 
-export default class PlayListItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.playVideo = this.playVideo.bind(this);
+const PlayListItem = ({ title, duration, isPlaying, onClick }) => {
+  const minutes = duration.get('minutes');
+  const seconds = duration.get('seconds');
+  const durationString = `${minutes}:${seconds}`;
+
+  let className = 'list-group-item';
+  if (isPlaying) {
+    className += ' active';
   }
-  playVideo(event) {
-    event.preventDefault();
-    store.dispatch({ type: 'SET_VIDEO', videoId: this.props.videoId });
-  }
-  render() {
-    const minutes = this.props.duration.get('minutes');
-    const seconds = this.props.duration.get('seconds');
-    return (
-      <a onClick={this.playVideo} href="#" className="list-group-item">
-        <h6 className="list-group-item-heading">{this.props.title}</h6>
-        <p className="list-group-item-text">{`${minutes}:${seconds}`}</p>
-      </a>
-    );
-  }
-}
+  return (
+    <a onClick={onClick} href="#" className={className}>
+      <h6 className="list-group-item-heading">{title}</h6>
+      <p className="list-group-item-text">{durationString}</p>
+    </a>
+  );
+};
+
 
 PlayListItem.propTypes = {
-  title: React.PropTypes.string,
-  videoId: React.PropTypes.string,
+  title: PropTypes.string,
+  isPlaying: PropTypes.bool,
+  //duration: momentPropTypes.momentObj,
+  onClick: PropTypes.func.isRequired,
 };
+
+export default PlayListItem;
