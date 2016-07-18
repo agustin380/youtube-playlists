@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-//import momentPropTypes from 'react-moment-proptypes';
+import momentPropTypes from 'react-moment-proptypes';
 
 
 const PlayListItem = ({ title, duration, isPlaying, onClick }) => {
@@ -23,7 +23,7 @@ const PlayListItem = ({ title, duration, isPlaying, onClick }) => {
 PlayListItem.propTypes = {
   title: PropTypes.string,
   isPlaying: PropTypes.bool,
-  //duration: momentPropTypes.momentObj,
+  duration: momentPropTypes.momentDurationObj,
   onClick: PropTypes.func.isRequired,
 };
 

@@ -13,6 +13,7 @@ export const setPlayingItem = (id) => ({
   id,
 });
 
-export const playNextVideo = () => ({
+export const playNextVideo = (id) => ({
   type: 'PLAY_NEXT_VIDEO',
+  id,
 });

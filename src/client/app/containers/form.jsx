@@ -22,9 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
         part: 'contentDetails',
         id: videoId,
       }),
-    ]).then(responses => {
-      const title = responses[0].result.items[0].snippet.title;
-      const duration = moment.duration(responses[1].result.items[0].contentDetails.duration);
+    ]).then(([snippet, contentDetails]) => {
+      const title = snippet.result.items[0].snippet.title;
+      const duration = moment.duration(contentDetails.result.items[0].contentDetails.duration);
       dispatch(addPlayListItem(title, videoId, duration));
     }));
   },

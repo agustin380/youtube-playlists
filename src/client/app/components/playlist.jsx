@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-//import momentPropTypes from 'react-moment-proptypes';
+import momentPropTypes from 'react-moment-proptypes';
 
 import PlayListItem from '../components/playlistItem.jsx';
 
@@ -22,7 +22,7 @@ PlayList.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     videoId: PropTypes.string.isRequired,
-    //duration: momentPropTypes.momentObj,
+    duration: momentPropTypes.momentDurationObj,
     isPlaying: PropTypes.bool.isRequired,
   }).isRequired).isRequired,
   onItemClick: PropTypes.func.isRequired,

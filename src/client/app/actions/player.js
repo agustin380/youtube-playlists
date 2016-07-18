@@ -11,7 +11,3 @@ export const setPlayer = player => ({
 export const playCurrentVideo = () => ({
   type: 'PLAY_CURRENT_VIDEO',
 });
-
-export const playNextVideo = () => ({
-  type: 'PLAY_NEXT_VIDEO',
-});

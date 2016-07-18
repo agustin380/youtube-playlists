@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import Youtube from '../components/player.jsx';
 
-import { setPlayer, playCurrentVideo, playNextVideo } from '../actions/player.js';
+import { setPlayer, playCurrentVideo } from '../actions/player.js';
+import { playNextVideo } from '../actions/playlist.js';
 
 
 const mapStateToProps = (state) => ({
