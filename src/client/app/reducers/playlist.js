@@ -1,8 +1,10 @@
+import { playlist as initialState } from '../utils/initialState.js';
+
 const setPlayingItem = (state, id) => (state.map(item => Object.assign(
   {}, item, { isPlaying: item.id === id }
 )));
 
-const playlistReducer = (state = [], action) => {
+const playlistReducer = (state = initialState, action) => {
   let playlistItem;
   let currentItemIndex;
   let nextItem;

@@ -1,9 +1,6 @@
-const defaultState = {
-  videoId: 'iNUq-JSXvS4',
-  player: undefined,
-};
+import { player as initialState } from '../utils/initialState.js';
 
-const player = (state = defaultState, action) => {
+const player = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_PLAYER':
       return Object.assign(

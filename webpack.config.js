@@ -16,16 +16,13 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'react-hot!babel',
-      },
-      {
+      }, {
         test: /\.json$/,
         loader: 'json-loader',
-      },
-      {
+      }, {
         test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
         loader: 'file',
-      },
-      {
+      }, {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
       },

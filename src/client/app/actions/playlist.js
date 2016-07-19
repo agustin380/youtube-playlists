@@ -1,4 +1,6 @@
-let itemId = 0;
+import { itemIdInit } from '../utils/initialState.js';
+
+let itemId = itemIdInit();
 
 export const addPlayListItem = (title, videoId, duration) => ({
   type: 'ADD_ITEM',
