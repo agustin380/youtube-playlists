@@ -10,7 +10,7 @@ export const playlist = [{
   title: 'Metallica - Welcome Home (Sanitarium)',
   videoId: 'V6Dfo4zDduI',
   duration: moment.duration('PT6M26S'),
-  isPlaying: false,
+  isPlaying: true,
 }, {
   id: 2,
   title: 'Tool - No Quarter (Salival) [Led Zeppelin Cover]',

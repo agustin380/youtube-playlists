@@ -30,11 +30,11 @@ const playlistReducer = (state = initialState, action) => {
     case 'PLAY_NEXT_VIDEO':
       playlistItem = getCurrentVideo(state);
       if (playlistItem) {
-        currentItemIndex = state.indexOf(playlistItem);
+        currentItemIndex = state.indexOf(playlistItem) + 1;
       } else {
         currentItemIndex = 0;
       }
-      nextItem = state[currentItemIndex + 1];
+      nextItem = state[currentItemIndex] || state[0];
       return setPlayingItem(state, nextItem.id);
 
     default:
