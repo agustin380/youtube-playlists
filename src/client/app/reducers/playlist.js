@@ -4,6 +4,10 @@ const setPlayingItem = (state, id) => (state.map(item => Object.assign(
   {}, item, { isPlaying: item.id === id }
 )));
 
+export const getCurrentVideo = (state) => (
+  state.filter(item => item.isPlaying)[0]
+);
+
 const playlistReducer = (state = initialState, action) => {
   let playlistItem;
   let currentItemIndex;
@@ -24,7 +28,7 @@ const playlistReducer = (state = initialState, action) => {
       return setPlayingItem(state, action.id);
 
     case 'PLAY_NEXT_VIDEO':
-      playlistItem = state.filter(item => item.isPlaying)[0];
+      playlistItem = getCurrentVideo(state);
       if (playlistItem) {
         currentItemIndex = state.indexOf(playlistItem);
       } else {

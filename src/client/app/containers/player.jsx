@@ -3,10 +3,10 @@ import Youtube from '../components/player.jsx';
 
 import { setPlayer, playCurrentVideo } from '../actions/player.js';
 import { playNextVideo } from '../actions/playlist.js';
-
+import { getCurrentVideo } from '../reducers/playlist.js';
 
 const mapStateToProps = (state) => ({
-  videoId: state.player.videoId,
+  videoId: getCurrentVideo(state.playlist).videoId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
