@@ -1,24 +1,16 @@
 import moment from 'moment';
 
+import { YoutubeApi } from '../utils/youtubeApi.js';
 import { addPlayListItem } from './playlist.js';
 
 export const submitPlaylistItem = (videoId) => (dispatch) => {
-  const { client } = window.gapi;
+  const api = new YoutubeApi();
 
-  client.load('youtube', 'v3').then(() => Promise.all([
-    client.youtube.videos.list({
-      part: 'snippet',
-      id: videoId,
-    }),
-    client.youtube.videos.list({
-      part: 'contentDetails',
-      id: videoId,
-    }),
-  ]).then(([snippet, contentDetails]) => {
-    const title = snippet.result.items[0].snippet.title;
-    const duration = moment.duration(contentDetails.result.items[0].contentDetails.duration);
+  return Promise.all([
+    api.getVideoTitle(videoId),
+    api.getVideoDuration(videoId),
+  ]).then(([title, durationString]) => {
+    const duration = moment.duration(durationString);
     dispatch(addPlayListItem(title, videoId, duration));
-  }));
-
-  return Promise.resolve();
+  });
 };
