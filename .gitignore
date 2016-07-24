@@ -1,5 +1,6 @@
 public
 node_modules
+nom-debug.log
 
 # JS
 *.min.js
@@ -11,3 +12,7 @@ node_modules
 
 # Credentials for APIs
 credentials.json
+
+# Code coverage
+.nyc_output
+coverage

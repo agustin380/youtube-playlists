@@ -1,8 +1,8 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import player from './player.js';
-import playlist from './playlist.js';
+import { reducer as player } from './player.js';
+import { reducer as playlist } from './playlist.js';
 
 
 const rootApp = combineReducers({

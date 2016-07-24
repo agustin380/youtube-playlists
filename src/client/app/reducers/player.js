@@ -1,6 +1,6 @@
 import { player as initialState } from '../utils/initialState.js';
 
-const player = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_PLAYER':
       return Object.assign(
@@ -20,5 +20,3 @@ const player = (state = initialState, action) => {
       return state;
   }
 };
-
-export default player;

@@ -8,7 +8,7 @@ export const getCurrentVideo = (state) => (
   state.filter(item => item.isPlaying)[0]
 );
 
-const playlistReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   let playlistItem;
   let currentItemIndex;
   let nextItem;
@@ -41,6 +41,3 @@ const playlistReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-
-export default playlistReducer;
