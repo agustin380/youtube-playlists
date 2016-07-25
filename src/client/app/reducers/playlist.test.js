@@ -1,12 +1,12 @@
 import chai from 'chai';
 import dirtyChai from 'dirty-chai';
-import moment from 'moment';
 
 import { reducer } from './playlist.js';
 import { playlist as initialState } from '../utils/initialState.js';
 
 chai.use(dirtyChai);
 const { expect } = chai;
+
 
 describe('playlistReducer', function() {
   it('should return the initial state', function() {
@@ -45,11 +45,19 @@ describe('playlistReducer', function() {
     expect(reducerState).to.deep.equal(finalState);
   });
 
-  it('should handle PLAY_NEXT_VIDEO', function() {
+  it('should handle PLAY_NEXT_VIDEO when the current video is not the last one', function() {
     const state = [1, 2, 3].map(id => ({ id, isPlaying: id === 2 }));
     const reducerState = reducer(state, { type: 'PLAY_NEXT_VIDEO' });
 
-    expect(reducerState[2].isPlaying).to.be.true();
     expect(reducerState[1].isPlaying).to.be.false();
+    expect(reducerState[2].isPlaying).to.be.true();
+  });
+
+  it('should handle PLAY_NEXT_VIDEO when the current video is the last one', function() {
+    const state = [1, 2, 3].map(id => ({ id, isPlaying: id === 3 }));
+    const reducerState = reducer(state, { type: 'PLAY_NEXT_VIDEO' });
+
+    expect(reducerState[2].isPlaying).to.be.false();
+    expect(reducerState[0].isPlaying).to.be.true();
   });
 });

@@ -1,8 +1,8 @@
 import { playlist as initialState } from '../utils/initialState.js';
 
-const setPlayingItem = (state, id) => (state.map(item => Object.assign(
-  {}, item, { isPlaying: item.id === id }
-)));
+const setPlayingItem = (state, id) => (
+  state.map(item => ({ ...item, isPlaying: item.id === id }))
+);
 
 export const getCurrentVideo = (state) => (
   state.filter(item => item.isPlaying)[0]
